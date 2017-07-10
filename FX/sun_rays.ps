@@ -1,0 +1,43 @@
+
+Texture2D t;
+SamplerState st;
+
+#define NUMSAMPLE 120
+#define DENSITY .9f
+#define WEIGHT 1.0f
+#define DECAY .35f
+#define EXPOSURE .25f
+#define BLOOM_THRESHHOLD 0.25f
+
+struct pin
+{
+	float4 p : SV_POSITION;
+	float2 tc : TEXCOORD0;
+	float4 l : TEXCOORD1;
+	float4 nocl : TEXCOORD2;
+};
+
+
+float4 ps(pin input) : SV_TARGET
+{
+	float3 c = t.Sample(st, input.tc);	
+
+	float2 tc = input.tc;
+	float2 dtc = tc-input.l.xy;
+	dtc *= (1.0f / NUMSAMPLE * DENSITY);
+	dtc = dtc * clamp(input.l.w * input.l.z, 0, .5f);
+	
+	float3 s;
+	float illdecay = 1.0;
+	for(int i = 0; i < NUMSAMPLE; ++i)
+	{
+		tc -= dtc;
+		s = t.Sample(st,tc);
+		s *= illdecay * WEIGHT;
+		c += s;
+		illdecay *= DECAY;
+	}
+
+	c *= EXPOSURE;
+	return float4(saturate((c-BLOOM_THRESHHOLD) / (1-BLOOM_THRESHHOLD)),1);	
+}

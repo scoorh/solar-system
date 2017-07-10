@@ -1,0 +1,39 @@
+Texture2D dt;
+Texture2D snt;
+SamplerState st;
+
+cbuffer vb
+{
+    float3 cp;
+	float pad;
+};
+
+
+struct pin
+{
+    float4 p : SV_POSITION;
+	float3 pW : POSITION;
+    float2 tc : TEXCOORD0;
+	float3 n : NORMAL;
+};
+
+
+float4 ps(pin input) : SV_TARGET
+{
+	float3 ambient = .10f;
+	float3 diffuse = 1.0f;
+	float3 texturec = dt.Sample(st,input.tc);
+
+	float3 lpos = float3(0,0,0);
+	float3 ldir = normalize(input.pW - lpos);		
+	float li = saturate(dot(input.n, -ldir));
+
+	if(li > 0.0f) 
+	{
+		ambient+=diffuse*li;
+	}
+	
+	ambient = saturate(ambient);
+	ambient = ambient*texturec;
+	return float4(ambient,1);
+}

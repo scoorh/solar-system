@@ -1,0 +1,23 @@
+
+Texture2D image : register(t0);
+Texture2D scene : register(t1);
+SamplerState st;
+
+struct pin
+{
+	float4 p : SV_POSITION;
+	float2 tc : TEXCOORD0;
+	float4 l : TEXCOORD1;
+	float4 nocl : TEXCOORD2;
+};
+
+
+float4 ps(pin input) : SV_Target
+{
+	return scene.Sample(st,input.tc) + image.Sample(st,input.tc);
+
+// DEMO
+//	float4 color = scene.Sample(st,input.tc) + image.Sample(st,input.tc);
+//	return float4(color.r,color.r,color.r,1.0f);
+//	return image.Sample(st,input.tc);
+}

@@ -1,0 +1,12 @@
+struct pin
+{
+    float4 p : SV_POSITION;
+	float4 dp : TEXTURE0;
+};
+
+
+float4 ps(pin input) : SV_TARGET
+{	
+	float d = (input.dp.z/input.dp.w);
+	return float4(d,d,d,1.0f);
+}

@@ -1,0 +1,33 @@
+Texture2D front;
+Texture2D back;
+Texture2D top;
+Texture2D bottom;
+Texture2D left;
+Texture2D right;
+
+
+SamplerState st;
+
+
+struct pin
+{
+    float4 p : SV_POSITION;
+    float2 tc : TEXCOORD0;
+	float t : PSIZE;
+};
+
+
+float4 ps(pin input) : SV_TARGET
+{
+	float4 c;
+
+	if(input.t==0) c = front.Sample(st,input.tc);
+	else if(input.t==1) c = back.Sample(st,input.tc);
+	else if(input.t==2) c = top.Sample(st,input.tc);
+	else if(input.t==3) c = bottom.Sample(st,input.tc);
+	else if(input.t==4) c = left.Sample(st,input.tc);
+	else if(input.t==5) c = right.Sample(st,input.tc);
+
+
+	return c;
+}

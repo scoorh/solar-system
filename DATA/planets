@@ -1,0 +1,92 @@
+8
+
+30 0 0
+0 0 0
+1 1 1
+0 1 0
+0 0 0
+50 0 50
+0 1
+DATA/MODEL/sphere
+DATA/TEXTURE/mercury_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+
+50 0 0
+0 0 0
+3 3 3
+0 1 0
+0 0 0
+70 0 70
+0 0.9
+DATA/MODEL/sphere
+DATA/TEXTURE/venus_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+
+70 0 0
+0 0 0
+3 3 3
+0 1 0
+0 0 0
+90 0 90
+0 0.8
+DATA/MODEL/sphere
+DATA/TEXTURE/earth_diff.jpg
+DATA/TEXTURE/earth_night.jpg
+
+90 0 0
+0 0 0
+1.5 1.5 1.5
+0 1 0
+0 0 0
+110 0 110
+0 0.7
+DATA/MODEL/sphere
+DATA/TEXTURE/mars_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+160 0 0
+0 0 0
+7 7 7
+0 1 0
+0 0 0
+160 0 160
+0 0.5
+DATA/MODEL/sphere
+DATA/TEXTURE/jupiter_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+200 0 0
+0 0 0
+6 6 6
+0 1 0
+0 0 0
+200 0 200
+0 0.35
+DATA/MODEL/sphere
+DATA/TEXTURE/saturn_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+240 0 0
+0 0 0
+5 5 5
+0 1 0
+0 0 0
+240 0 240
+0 0.15
+DATA/MODEL/sphere
+DATA/TEXTURE/uranus_diff.jpg
+DATA/TEXTURE/night_side.jpg
+
+280 0 0
+0 0 0
+4 4 4
+0 1 0
+0 0 0
+280 0 280
+0 0.07
+DATA/MODEL/sphere
+DATA/TEXTURE/neptune_diff.jpg
+DATA/TEXTURE/night_side.jpg
+

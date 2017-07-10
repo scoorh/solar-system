@@ -1,0 +1,19 @@
+Texture2D t;
+SamplerState st;
+
+
+
+struct pin
+{
+	float4 p : SV_POSITION;
+	float2 tc : TEXCOORD0;
+	float4 l : TEXCOORD1;
+	float4 nocl : TEXCOORD2;
+};
+
+
+float4 ps(pin input) : SV_Target 
+{
+	float4 c = 	t.Sample(st,input.tc);
+	
+}
