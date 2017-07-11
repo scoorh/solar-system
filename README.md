@@ -1,2 +1,2 @@
 # solar-system
-Licencjat na szybko, trzeba było zrobić w dwa dni.. jakoś tak wyszło więc quality też średnie ale promotor powiedział Ok :D
+Bachelor degree final work, had to do it in two days because reasons. Low code quality but.. hey atleast it shows that I know what D3D11 APi is :)
